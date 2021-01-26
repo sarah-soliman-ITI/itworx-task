@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
+  "version": 1, 
   "newProjectRoot": "projects",
   "projects": {
-    "assessment": {
+    "angular9": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/assessment",
+            "outputPath": "dist/angular9",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -39,6 +39,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
+              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -61,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "assessment:build"
+            "browserTarget": "angular9:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "assessment:build:production"
+              "browserTarget": "angular9:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "assessment:build"
+            "browserTarget": "angular9:build"
           }
         },
         "test": {
@@ -109,16 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "assessment:serve"
+            "devServerTarget": "angular9:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "assessment:serve:production"
+              "devServerTarget": "angular9:serve:production"
             }
           }
         }
       }
-    }
-  },
-  "defaultProject": "assessment"
+    }},
+  "defaultProject": "angular9"
 }
