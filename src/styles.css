@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #121212 !important;
+    color: white !important;
+}
+
+.top-header{
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
