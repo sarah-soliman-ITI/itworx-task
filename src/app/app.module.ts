@@ -4,15 +4,34 @@ import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { TokenInterceptor } from './services/token.interceptor';
+import { StudentsComponent } from './components/students/students.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { RouterModule, Routes, CanActivate, PreloadAllModules } from '@angular/router';
 
+const appRoutes: Routes = [
+  {
+    path: 'courses',
+    component: CoursesComponent,
+    data: { title: 'Courses' }
+  },
+  {
+    path: 'students',
+    component: StudentsComponent,
+    data: { title: 'students' }
+  }
+]
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent
+    CoursesComponent,
+    StudentsComponent,
+    MyProfileComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+
   ],
   providers: [  {
     provide: HTTP_INTERCEPTORS,

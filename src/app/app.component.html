@@ -1,7 +1,7 @@
 <div class="md-padding" layout="column" layout-fill>
   <header>
-    <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools top-header">
+    <div class="md-hue-2">
+      <div class="div-tools top-header">
         <img src="../assets/images/Logo.png" />
 
 
@@ -13,19 +13,19 @@
 
         </div>
       </div>
-    </md-toolbar>
+    </div>
 
-    <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
+    <div class="md-hue-2">
+      <div class="div-tools">
         <img src="../assets/images/Vector Smart Object1.png" />
       </div>
-    </md-toolbar>
-  </header>
-  <md-content class="md-padding demo-section" layout="row" flex>
-    <div flex>
-      <courses></courses>
     </div>
-  </md-content>
+  </header>
+  <div class="md-padding demo-section" layout="row" flex>
+    <div flex>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
   <footer layout="row" class="md-padding">
     <div>
       <p>I am Sticky!</p>
