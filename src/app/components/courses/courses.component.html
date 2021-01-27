@@ -8,12 +8,12 @@
   <div class="search col-lg-12">
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
   </div>
-  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of coursesListBind | filter:searchText">
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of courses | filter:searchText">
     <!-- Card -->
-    <div class="card" *ngFor="let xxx of course">
+    <div class="card">
       <!--Card image-->
       <div class="view overlay">
-        <img class="card-img-top" src="../../../assets/images/img1.png" alt="Card image cap">
+        <img class="card-img-top" [src]="course.CourseImg" alt="Card image cap">
         <a href="#!">
           <div class="mask rgba-white-slight"></div>
         </a>
@@ -21,10 +21,11 @@
       <!--Card content-->
       <div class="card-body">
         <!--Title-->
+       
         <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
-          {{xxx.CourseId}}</h4>
+          {{course.CourseName}}</h4>
         <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
-          {{xxx.Members}}</h4>
+          {{course.Members}}</h4>
       </div>
     </div>
   </div>
