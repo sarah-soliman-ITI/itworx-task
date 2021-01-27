@@ -1,0 +1,28 @@
+
+  
+
+    <div class="row">
+      <div class="col-md-12 py-3">
+        <h2 class="pb-2">Current courses</h2>
+        <ngb-carousel *ngIf="course_list">
+          <ng-template ngbSlide *ngFor="let course of current_courses">
+            <img src="../../../assets/images/slider.png" alt="Random slide">
+            <div class="carousel-caption">
+              <h3>
+              <span class="sliderItems">
+                  1 
+              </span>
+              <span class="sliderItems">
+             2
+            </span>
+            <span class="sliderItems">
+            2
+            </span></h3>
+              <p [innerText]="course.courseDescription"></p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+  
+  

@@ -1,43 +1,38 @@
-<div class="container">
-<h3> All Courses</h3>
-    <!-- Card deck -->
-    <div class="card-deck row">
-        <div class="search col-lg-12">
-            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
-        </div>
-      <div class="col-xs-12 col-sm-6 col-md-4"  *ngFor="let course of coursesListBind | filter:searchText">
-      <!-- Card -->
-      <div class="card"  *ngFor="let xxx of course">
-    
-        <!--Card image-->
-        <div class="view overlay">
-          <img class="card-img-top" src="../../../assets/images/img1.png" alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-    
-        <!--Card content-->
-        <div class="card-body">
-    
-          <!--Title-->
-          <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
-        {{xxx.CourseId}}</h4>
+<div class="row">
+  <div class="col-lg-3">www</div>
+
+<div class="col-lg-6">
+  <h3> All Courses</h3>
+<!-- Card deck -->
+<div class="card-deck row">
+  <div class="search col-lg-12">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of coursesListBind | filter:searchText">
+    <!-- Card -->
+    <div class="card" *ngFor="let xxx of course">
+      <!--Card image-->
+      <div class="view overlay">
+        <img class="card-img-top" src="../../../assets/images/img1.png" alt="Card image cap">
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+      <!--Card content-->
+      <div class="card-body">
+        <!--Title-->
         <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
-            {{xxx.Members}}</h4>
-         
-    
-    
-        </div>
-    
+          {{xxx.CourseId}}</h4>
+        <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
+          {{xxx.Members}}</h4>
       </div>
-      <!-- Card -->
-      </div>
-    
-  
-    
-      
     </div>
-    <!-- Card deck -->
-      
-    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-3">
+  <app-carousel></app-carousel>
+
+</div>
+</div>

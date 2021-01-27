@@ -10,6 +10,7 @@ import { RouterModule, Routes, CanActivate, PreloadAllModules } from '@angular/r
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     AppComponent,
     CoursesComponent,
     StudentsComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
