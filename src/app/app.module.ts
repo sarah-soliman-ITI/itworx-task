@@ -9,6 +9,8 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { RouterModule, Routes, CanActivate, PreloadAllModules } from '@angular/router';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 
 const appRoutes: Routes = [
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgbModule
 
   ],
   providers: [  {
