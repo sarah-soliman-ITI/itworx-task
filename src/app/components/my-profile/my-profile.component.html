@@ -1,1 +1,49 @@
-<p>my-profile works!</p>
+<div class="container">
+    <h3> Student Details  </h3>
+    <!-- Card deck -->
+    <div class="card-deck row">     
+
+        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let student of studDetails">
+            <!-- Card -->
+            <div class="card">
+            
+                <div class="card-body">
+
+                    <!--Title-->
+                    <h4 class="card-title">1 Card title</h4>
+                    <!--Text-->
+
+                    <p class="card-text">
+                        id: {{student.Id}}
+                    </p>
+                    <p class="card-text">
+                        Name: {{student.Name}}
+
+                    </p>
+                    <p class="card-text">
+                        Phone: {{student.Phone}}
+                    </p>
+                    <p class="card-text">
+                        RegisterDate: {{student.RegisterDate}}
+                    </p>
+                    <p class="card-text">
+                        Address: {{student.Address}}
+                    </p>
+
+                </div>
+
+                <div *ngFor="let course of courseDetails" style="background-color: aqua;">
+                    <div *ngFor="let item of course.Courses" style="background-color: aqua;">
+                        {{item.CourseId}}                  
+                    </div>              
+                </div>
+            </div>
+            <!-- Card -->
+        </div>
+
+
+
+    </div>
+    <!-- Card deck -->
+
+</div>

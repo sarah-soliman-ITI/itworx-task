@@ -2,10 +2,12 @@
 <h3> All Courses</h3>
     <!-- Card deck -->
     <div class="card-deck row">
-    
-      <div class="col-xs-12 col-sm-6 col-md-4"  *ngFor="let course of courses">
+        <div class="search col-lg-12">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+        </div>
+      <div class="col-xs-12 col-sm-6 col-md-4"  *ngFor="let course of coursesListBind | filter:searchText">
       <!-- Card -->
-      <div class="card">
+      <div class="card"  *ngFor="let xxx of course">
     
         <!--Card image-->
         <div class="view overlay">
@@ -19,8 +21,10 @@
         <div class="card-body">
     
           <!--Title-->
-          <h4 class="card-title" style="color: black;">
-        {{course.CourseId}}</h4>
+          <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
+        {{xxx.CourseId}}</h4>
+        <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
+            {{xxx.Members}}</h4>
          
     
     

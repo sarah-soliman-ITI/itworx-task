@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import studentsData  from '../lists/students.json';
-import requestsData from '../lists/requests.json';
+import {HttpClient} from '@angular/common/http'
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,14 +12,23 @@ import requestsData from '../lists/requests.json';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  courses: any[] = [];
+  courses: any;
+  coursesListBind =[];
+  searchText;
 
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }
 
   ngOnInit(): void {
-    this.courses =[...requestsData];
-    console.log(studentsData);
-    console.log(requestsData);
+    this.httpClient.get("assets/lists/requests.json").subscribe(data =>{
+      console.log(data);
+      this.courses = data;
+      var coursesList = this.courses.filter(x => x.Courses != null || 
+        x.Courses != 0).map(x => x.Courses);
+        this.coursesListBind = coursesList;
+
+    })
+   
+  
   }
 
 }

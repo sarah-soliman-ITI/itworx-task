@@ -7,10 +7,13 @@ import { TokenInterceptor } from './services/token.interceptor';
 import { StudentsComponent } from './components/students/students.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { RouterModule, Routes, CanActivate, PreloadAllModules } from '@angular/router';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+
 
 const appRoutes: Routes = [
   {
-    path: 'courses',
+    path: '',
     component: CoursesComponent,
     data: { title: 'Courses' }
   },
@@ -18,6 +21,11 @@ const appRoutes: Routes = [
     path: 'students',
     component: StudentsComponent,
     data: { title: 'students' }
+  },
+  {
+    path: 'profile/:studentId',
+    component: MyProfileComponent,
+    data: { title: 'profile' }
   }
 ]
 
@@ -31,6 +39,9 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule,
+    Ng2SearchPipeModule
 
   ],
   providers: [  {
