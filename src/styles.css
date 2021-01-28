@@ -105,3 +105,8 @@ ol.carousel-indicators {
 a {
     color: #bfbeba !important;
 }
+
+p,img,a,div{
+    cursor: pointer !important;
+}
+

@@ -43,7 +43,7 @@
                 <h4 class="card-title">Requested Courses</h4>
                 <div *ngFor="let course of courseDetails">
                     <div *ngFor="let item of course.Courses" >
-                        {{item.CourseId}}                  
+                     Course Name : {{getCourseName(item.CourseId)}}  / ID :   {{item.CourseId}}                    
                     </div>  
 
                     <h4 class="card-title">Payment Type</h4>

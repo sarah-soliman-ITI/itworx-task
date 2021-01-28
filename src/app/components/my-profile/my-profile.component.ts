@@ -14,10 +14,12 @@ export class MyProfileComponent implements OnInit {
   studId;
   studDetails;
   courseDetails;
+  courseNames;
 
   constructor(private httpClient : HttpClient,private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllCourses();
 
     this.studId = this.router.url.substr(this.router.url.lastIndexOf('/') + 1);
   this.httpClient.get("assets/lists/students.json").subscribe(data =>{
@@ -35,19 +37,29 @@ export class MyProfileComponent implements OnInit {
       this.coursesListBind = coursesList;
      // debugger
       for (let i = 0; i < this.coursesListBind.length; i++) {
+   
         this.courseDetails = this.courses.filter(x => x.StudentId == this.studId);
+
       }
      
   })
+  }
 
- 
+  getAllCourses(){
+    this.httpClient.get("assets/lists/courses.json").subscribe(data =>{
+      console.log(data);
+      this.courseNames = data;     
+    })
+  }
+
+  getCourseName(courseId) {  
+        let name = this.courseNames.filter(x => x.CourseId == courseId);
+       return name[0].CourseName;      
+  }
 
 
- 
-
-
-
-
+  totalPriceForCourses(){
+    
   }
 
 }
