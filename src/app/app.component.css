@@ -1,0 +1,6 @@
+.topHeader{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    right: 15px;
+}

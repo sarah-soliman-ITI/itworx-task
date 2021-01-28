@@ -98,3 +98,6 @@ ol.carousel-indicators {
 .card-title {
   font-size: 18px;
 }
+.col-lg-12.courseDuration {
+    padding: 0px;
+}

@@ -1,0 +1,86 @@
+
+<form [formGroup]="courseForm">
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="CourseId" 
+            name="CourseId" 
+            placeholder="CourseId">
+    </div>
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="CourseName" 
+            name="CourseName" 
+            placeholder="CourseName"
+            [readOnly]="isEdit">
+    </div>
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="CoursePrice" 
+            name="CoursePrice" 
+            placeholder="CoursePrice">
+    </div>
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="AvailableSeats" 
+            name="AvailableSeats" 
+            placeholder="AvailableSeats">
+    </div>   
+    
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="courseLevel" 
+            name="courseLevel" 
+            placeholder="courseLevel">
+    </div>  
+
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="AvailableSeats" 
+            name="AvailableSeats" 
+            placeholder="AvailableSeats">
+    </div>  
+
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="CourseDuration" 
+            name="CourseDuration" 
+            placeholder="CourseDuration">
+    </div>  
+
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="CourseDuration" 
+            name="CourseDuration" 
+            placeholder="CourseDuration">
+    </div> 
+
+    <div class="form-group">
+        <input 
+            type="text" 
+            class="form-control w-100" 
+            formControlName="CourseCategory" 
+            name="CourseCategory" 
+            placeholder="CourseCategory">
+    </div> 
+    
+    
+  </form>
+  <button (click)="add()" >Add</button>
+  <!-- <button (click)="edit()" *ngIf="isEdit">Edit</button> -->
+  <button (click)="resetForm()" >Reset</button>

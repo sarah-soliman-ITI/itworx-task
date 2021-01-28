@@ -15,6 +15,15 @@ export class CoursesComponent implements OnInit {
   courses: any;
   coursesListBind = [];
   searchText;
+  dev = "Development";
+  soft = "IT & Software";
+  fin = "Finance & Accounting";
+  Other = "Other";
+  Beginner= "Beginner";
+  Intermediate= "Intermediate";
+  Expert= "Expert";
+  AllLevels= "AllLevels";
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -60,35 +69,31 @@ export class CoursesComponent implements OnInit {
 
   }
 
-  getCoursesDevCategwo(event) {
-    if (event == true) {
-      var coursesList = this.courses.filter(x => x.CourseCategory == "Development");
+
+  filterCourses(event, option) {  
+    if (event == true && option !=  this.Other) {
+      var coursesList = this.courses.filter(x => x.CourseCategory == option);
       console.log(coursesList);
+      this.courses = coursesList;
+    }
+    else if (event == true && option ==  this.Other) {
+      var coursesList = this.courses.filter(x => x.CourseCategory !=this.dev && x.CourseCategory !=this.soft
+         && x.CourseCategory !=this.fin);
       this.courses = coursesList;
     } else {
       this.getCourses();
     }
   }
 
-  getCoursesFin(event) {
-    if (event == true) {
-      var coursesList = this.courses.filter(x => x.CourseCategory == "Finance & Accounting");
+
+  filterCoursesLVL(event, option){
+    if (event == true && option != this.AllLevels) {
+      var coursesList = this.courses.filter(x => x.courseLevel == option);
       console.log(coursesList);
       this.courses = coursesList;
     } else {
       this.getCourses();
     }
   }
-
-  getCoursesIT(event) {
-    if (event == true) {
-      var coursesList = this.courses.filter(x => x.CourseCategory == "IT & Software");
-      console.log(coursesList);
-      this.courses = coursesList;
-    } else {
-      this.getCourses();
-    }
-  }
-
 
 }

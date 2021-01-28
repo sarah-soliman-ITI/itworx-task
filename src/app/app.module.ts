@@ -11,6 +11,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { CourseAddComponent } from './components/course-add/course-add.component';
+import { CourseService } from './components/courses/course.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -30,6 +34,12 @@ const appRoutes: Routes = [
     component: MyProfileComponent,
     data: { title: 'profile' }
   }
+  ,
+  {
+    path: 'course-add',
+    component: CourseAddComponent,
+    data: { title: 'course-add' }
+  }
 ]
 
 @NgModule({
@@ -38,7 +48,8 @@ const appRoutes: Routes = [
     CoursesComponent,
     StudentsComponent,
     MyProfileComponent,
-    CarouselComponent
+    CarouselComponent,
+    CourseAddComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +57,11 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     Ng2SearchPipeModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
 
   ],
-  providers: [  {
+  providers: [ CourseService, {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true,
