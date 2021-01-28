@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import {HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 
@@ -13,31 +13,82 @@ import { FormsModule } from '@angular/forms';
 })
 export class CoursesComponent implements OnInit {
   courses: any;
-  coursesListBind =[];
+  coursesListBind = [];
   searchText;
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpClient.get("assets/lists/courses.json").subscribe(data =>{
+    this.getCourses();
+  }
+
+  getCourses() {
+    this.httpClient.get("assets/lists/courses.json").subscribe(data => {
       console.log(data);
       this.courses = data;
-      // var coursesList = this.courses.filter(x => x.Courses != null || 
-      //   x.Courses != 0).map(x => x.Courses);
-      //   this.coursesListBind = coursesList;
-
     })
-
-  //   "CourseId": 123,
-  //   "CourseName": "Course 1",
-  //   "CoursePrice": 123.5,
-  //   "AvailableSeats": 25,
-  //   "CourseImg": "https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/6772890/600/400/m2/fpnw/wm0/9-.jpg?1564910091&s=cae782a267bc92f8a563993cb79de957",
-	// "courseLevel":"Beginner",
-	// "CourseDuration":40,
-	// "CourseCategory":"IT & Software"
-   
-  
   }
+  getCoursesDurLessThanTwo(event) {
+    console.log(event);
+    if (event == true) {
+      var coursesList = this.courses.filter(x => x.CourseDuration < 2);
+      console.log(coursesList);
+      this.courses = coursesList;
+    } else {
+      this.getCourses();
+    }
+  }
+
+  getCoursesFromTwo(event) {
+    if (event == true) {
+      var coursesList = this.courses.filter(x => x.CourseDuration > 2 && x.CourseDuration < 10);
+      console.log(coursesList);
+      this.courses = coursesList;
+    } else {
+      this.getCourses();
+    }
+  }
+
+  getCoursesDurMoreThanTwo(event) {
+    if (event == true) {
+      var coursesList = this.courses.filter(x => x.CourseDuration > 10);
+      console.log(coursesList);
+      this.courses = coursesList;
+    } else {
+      this.getCourses();
+    }
+
+  }
+
+  getCoursesDevCategwo(event) {
+    if (event == true) {
+      var coursesList = this.courses.filter(x => x.CourseCategory == "Development");
+      console.log(coursesList);
+      this.courses = coursesList;
+    } else {
+      this.getCourses();
+    }
+  }
+
+  getCoursesFin(event) {
+    if (event == true) {
+      var coursesList = this.courses.filter(x => x.CourseCategory == "Finance & Accounting");
+      console.log(coursesList);
+      this.courses = coursesList;
+    } else {
+      this.getCourses();
+    }
+  }
+
+  getCoursesIT(event) {
+    if (event == true) {
+      var coursesList = this.courses.filter(x => x.CourseCategory == "IT & Software");
+      console.log(coursesList);
+      this.courses = coursesList;
+    } else {
+      this.getCourses();
+    }
+  }
+
 
 }

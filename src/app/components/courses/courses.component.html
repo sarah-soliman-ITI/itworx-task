@@ -1,39 +1,164 @@
 <div class="row">
-  <div class="col-lg-3">www</div>
+  <div class="col-lg-3">
 
-<div class="col-lg-6">
-  <h3> All Courses</h3>
-<!-- Card deck -->
-<div class="card-deck row">
-  <div class="search col-lg-12">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
-  </div>
-  <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of courses | filter:searchText">
-    <!-- Card -->
-    <div class="card">
-      <!--Card image-->
+    <div class="card recentsUpdatesSection">
       <div class="view overlay">
-        <img class="card-img-top" [src]="course.CourseImg" alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
+        <div class="recentUpdates">Filter BY:</div>
       </div>
-      <!--Card content-->
-      <div class="card-body">
-        <!--Title-->
-       
-        <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
-          {{course.CourseName}}</h4>
-        <h4 class="card-title" style="color: yellow;background: red;height: 20px;">
-          {{course.Members}}</h4>
+      <div class="card-body ">
+        <div class="col-lg-12 courseDuration">
+          Course Duration
+        </div>
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="lessTwo"
+            (change)="getCoursesDurLessThanTwo($event.target.checked)" />
+          <label class="lbl_Checkbox" for="lessTwo">
+            Less than 2 hours
+          </label>
+        </div>
+
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="fromTwo" (change)="getCoursesFromTwo($event.target.checked)" />
+          <label class="lbl_Checkbox" for="fromTwo">
+            From 2 to 10 hours
+          </label>
+        </div>
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="moreTwo"
+            (change)="getCoursesDurMoreThanTwo($event.target.checked)" />
+          <label class="lbl_Checkbox" for="moreTwo">
+            more than 10 hours
+          </label>
+        </div>
+      </div>
+
+      <div class="card-body ">
+        <div class="col-lg-12 courseDuration">
+         All Categories
+        </div>
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="dev"
+            (change)="getCoursesDevCategwo($event.target.checked)" />
+          <label class="lbl_Checkbox" for="dev">
+           Development
+          </label>
+        </div>
+
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="fin" (change)="getCoursesFin($event.target.checked)" />
+          <label class="lbl_Checkbox" for="fin">
+           Finance & Accounting
+          </label>
+        </div>
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="it"
+            (change)="getCoursesIT($event.target.checked)" />
+          <label class="lbl_Checkbox" for="it">
+          IT & Software
+          </label>
+        </div>
+
+        <div class="col-lg-12 pad0mg">
+          <input type="checkbox" class="switchIco" id="other"
+            (change)="getCoursesDurMoreThanTwo($event.target.checked)" />
+          <label class="lbl_Checkbox" for="other">
+          Other
+          </label>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <div class="col-lg-6">
+    <div class="allCoursesHeader">
+
+      <h3 class="allCoursesTxt"> All Courses</h3>
+      <div class="search col-lg-4">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Card deck -->
+    <div class="card-deck row">
+
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let course of courses | filter:searchText">
+        <!-- Card -->
+        <div class="card">
+          <!--Card image-->
+          <div class="view overlay">
+            <img class="card-img-top img-fluid" [src]="course.CourseImg" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Card content-->
+          <div class="card-body">
+            <!--Title-->
+
+            <h4 class="card-title">
+              Name: {{course.CourseName}}</h4>
+            <h4 class="card-title">
+              Price: {{course.CoursePrice}}</h4>
+            <h4 class="card-title" [ngClass]="course.AvailableSeats < 20  ? 'warningMinSeats' : ''">
+              Available Seats: {{course.AvailableSeats}}</h4>
+            <h4 class="card-title">
+              Course Duration: {{course.CourseDuration}}</h4>
+            <h4 class="card-title">
+              Course Category: {{course.CourseCategory}}</h4>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 
-<div class="col-lg-3">
-  <app-carousel></app-carousel>
+  <div class="col-lg-3">
+    <app-carousel></app-carousel>
 
-</div>
+    <div class="card recentsUpdatesSection">
+      <div class="view overlay">
+        <div class="recentUpdates">Recent Updates</div>
+      </div>
+      <div class="card-body updateHolder">
+        <div class="col-lg-2 pad0mg">
+          <img src="../../../assets/images/Ellipse 3.png" />
+        </div>
+        <div class="col-lg-10 pad0mg">
+          <h4 class="card-title recentUpdateText">
+            Karim Mostafa Post in Learning Powerful mental course ...</h4>
+          <h6 class="card-title">
+            3 min ago.</h6>
+        </div>
+      </div>
+
+      <div class="card-body updateHolder">
+        <div class="col-lg-2 pad0mg">
+          <img src="../../../assets/images/Ellipse 3.png" />
+        </div>
+        <div class="col-lg-10 pad0mg">
+          <h4 class="card-title recentUpdateText">
+            Karim Mostafa Post in Learning Powerful mental course ...</h4>
+          <h6 class="card-title">
+            3 min ago.</h6>
+        </div>
+      </div>
+
+      <div class="card-body updateHolder">
+        <div class="col-lg-2 pad0mg">
+          <img src="../../../assets/images/Ellipse 3.png" />
+        </div>
+        <div class="col-lg-10 pad0mg">
+          <h4 class="card-title recentUpdateText">
+            Karim Mostafa Post in Learning Powerful mental course ...</h4>
+          <h6 class="card-title">
+            3 min ago.</h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

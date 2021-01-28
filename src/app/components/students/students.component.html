@@ -1,52 +1,104 @@
 
-    <h3> All Students </h3>
-    <!-- Card deck -->
-    <div class="card-deck row">
-        <div class="search col-lg-12">
-            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+    <div class="row">
+        <div class="col-lg-3">
+      
+         
+      
         </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let student of students | filter:searchText">
-            <!-- Card -->
-            <div class="card">
+      
+        <div class="col-lg-6">
+          <div class="allCoursesHeader">
+      
+            <h3 class="allCoursesTxt"> All Students</h3>
+            <div class="search col-lg-4">
+              <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+            </div>
+          </div>
+      
+          <!-- Card deck -->
+          <div class="card-deck row">
+      
+            <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let student of students | filter:searchText">
+              <!-- Card -->
+              <div class="card">
                 <!--Card image-->
                 <div class="view overlay">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
+                  <img class="card-img-top img-fluid">
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
                 </div>
-
                 <!--Card content-->
                 <div class="card-body">
+                  <!--Title-->
+      
+                  <h4 class="card-title">
+                    id: {{student.Id}}</h4>
+                  <h4 class="card-title">
+                  
+                    Name: {{student.Name}}
+                </h4>
+                  <h4 class="card-title">
+                    RegisterDate: {{student.RegisterDate}}</h4>
+                  <h4 class="card-title">
+                    Phone: {{student.Phone}}</h4>
+                  <h4 class="card-title">
+                  
+                    Address: {{student.Address}}
+                </h4>
 
-                    <!--Title-->
-                    <h4 class="card-title">1 Card title</h4>
-                    <!--Text-->
-
-                    <p class="card-text">
-                        id: {{student.Id}}
-                    </p>
-                    <p class="card-text">
-                        Name: {{student.Name}}
-
-                    </p>
-                    <p class="card-text">
-                        Phone: {{student.Phone}}
-                    </p>
-                    <p class="card-text">
-                        RegisterDate: {{student.RegisterDate}}
-                    </p>
-                    <p class="card-text">
-                        Address: {{student.Address}}
-                    </p>
-
-                    <button (click)="goToProfilePage(student.Id)">goToProfilePage</button>
+                <h4  class="card-title">
+                    <button class="btn btn-primary" (click)="goToProfilePage(student.Id)">goToProfilePage</button>
+                </h4>
                 </div>
-
+              </div>
             </div>
-            <!-- Card -->
+          </div>
         </div>
-
-
-
-    </div>
+      
+        <div class="col-lg-3">
+          <app-carousel></app-carousel>
+      
+          <div class="card recentsUpdatesSection">
+            <div class="view overlay">
+              <div class="recentUpdates">Recent Updates</div>
+            </div>
+            <div class="card-body updateHolder">
+              <div class="col-lg-2 pad0mg">
+                <img src="../../../assets/images/Ellipse 3.png" />
+              </div>
+              <div class="col-lg-10 pad0mg">
+                <h4 class="card-title recentUpdateText">
+                  Karim Mostafa Post in Learning Powerful mental course ...</h4>
+                <h6 class="card-title">
+                  3 min ago.</h6>
+              </div>
+            </div>
+      
+            <div class="card-body updateHolder">
+              <div class="col-lg-2 pad0mg">
+                <img src="../../../assets/images/Ellipse 3.png" />
+              </div>
+              <div class="col-lg-10 pad0mg">
+                <h4 class="card-title recentUpdateText">
+                  Karim Mostafa Post in Learning Powerful mental course ...</h4>
+                <h6 class="card-title">
+                  3 min ago.</h6>
+              </div>
+            </div>
+      
+            <div class="card-body updateHolder">
+              <div class="col-lg-2 pad0mg">
+                <img src="../../../assets/images/Ellipse 3.png" />
+              </div>
+              <div class="col-lg-10 pad0mg">
+                <h4 class="card-title recentUpdateText">
+                  Karim Mostafa Post in Learning Powerful mental course ...</h4>
+                <h6 class="card-title">
+                  3 min ago.</h6>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+      </div>

@@ -10,9 +10,7 @@ body{
     align-items: center;
 }
 
-p{
-    color: black;
-}
+
 
 .card-deck .card{
     min-height: 390px;
@@ -20,3 +18,83 @@ p{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:focus {
+    outline: none !important;
+}
+
+ol.carousel-indicators {
+    display: none !important;
+}
+
+.card{
+    margin: 5% 0%;
+    background: #181818 !important;
+    color: #c0c0c0 !important;
+  }
+  
+  .card-body{
+    margin: 0% 0% 0% 3%;
+    padding: 6% 0%;
+  }
+  h4.card-title.warningMinSeats {
+    color: #ff5b5b;
+}
+
+.recentUpdates{
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.recentUpdateText{
+  font-size: 14px !important;
+  width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recentsUpdatesSection{
+  padding: 35px;
+  border-radius: 20px;
+
+}
+
+.updateHolder{
+  display: flex;
+}
+
+.pad0mg{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+.allCoursesTxt{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border-bottom: 10px solid #54b053;
+}
+
+.allCoursesHeader{
+  display: flex;
+  align-items: center;
+}
+
+.lbl_Checkbox{
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.courseDuration{
+  padding: 0px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+}
