@@ -23,7 +23,7 @@ export class MyProfileComponent implements OnInit {
   this.httpClient.get("assets/lists/students.json").subscribe(data =>{
     console.log(data);
     this.students = data;
-    debugger;
+   // debugger;
     this.studDetails = this.students.filter(x => x.Id == this.studId);
   })
 
@@ -33,11 +33,14 @@ export class MyProfileComponent implements OnInit {
     var coursesList = this.courses.filter(x => x.Courses != null || 
       x.Courses != 0).map(x => x.Courses);
       this.coursesListBind = coursesList;
+     // debugger
       for (let i = 0; i < this.coursesListBind.length; i++) {
         this.courseDetails = this.courses.filter(x => x.StudentId == this.studId);
       }
      
   })
+
+ 
 
 
  

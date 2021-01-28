@@ -42,7 +42,7 @@ export class CourseAddComponent implements OnInit  {
 
   add(){
     if(this.courseForm.valid){
-      this.courseService.changeMessage("Hello from Sibling")
+     console.log(this.courseForm.value);
       this.resetForm();
     }
       else {

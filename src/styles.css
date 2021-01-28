@@ -101,3 +101,7 @@ ol.carousel-indicators {
 .col-lg-12.courseDuration {
     padding: 0px;
 }
+
+a {
+    color: #bfbeba !important;
+}

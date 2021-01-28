@@ -1,86 +1,146 @@
 
-<form [formGroup]="courseForm">
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="CourseId" 
-            name="CourseId" 
-            placeholder="CourseId">
+
+<div class="row">
+    <div class="col-lg-3">
+  
+   
+  
     </div>
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="CourseName" 
-            name="CourseName" 
-            placeholder="CourseName"
-            [readOnly]="isEdit">
+  
+    <div class="col-lg-6">
+      <div class="allCoursesHeader">
+        <h3 class="allCoursesTxt"> Add Courses</h3>
+      </div>
+  
+      <form [formGroup]="courseForm">
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="CourseId" 
+                name="CourseId" 
+                placeholder="CourseId">
+        </div>
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="CourseName" 
+                name="CourseName" 
+                placeholder="CourseName"
+                >
+        </div>
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="CoursePrice" 
+                name="CoursePrice" 
+                placeholder="CoursePrice">
+        </div>
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="AvailableSeats" 
+                name="AvailableSeats" 
+                placeholder="AvailableSeats">
+        </div>   
+        
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="courseLevel" 
+                name="courseLevel" 
+                placeholder="courseLevel">
+        </div>  
+    
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="AvailableSeats" 
+                name="AvailableSeats" 
+                placeholder="AvailableSeats">
+        </div>  
+    
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="CourseDuration" 
+                name="CourseDuration" 
+                placeholder="CourseDuration">
+        </div>  
+    
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="CourseDuration" 
+                name="CourseDuration" 
+                placeholder="CourseDuration">
+        </div> 
+    
+        <div class="form-group col-lg-3">
+            <input 
+                type="text" 
+                class="form-control w-100" 
+                formControlName="CourseCategory" 
+                name="CourseCategory" 
+                placeholder="CourseCategory">
+        </div> 
+        
+        
+      </form>
+      <button class="btn btn-primary" (click)="add()" >Add</button>
+      <button class="btn btn-primary" (click)="resetForm()" >Reset</button>
     </div>
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="CoursePrice" 
-            name="CoursePrice" 
-            placeholder="CoursePrice">
+  
+    <div class="col-lg-3">
+      <app-carousel></app-carousel>
+      <div class="card recentsUpdatesSection">
+        <div class="view overlay">
+          <div class="recentUpdates">Recent Updates</div>
+        </div>
+        <div class="card-body updateHolder">
+          <div class="col-lg-2 pad0mg">
+            <img src="../../../assets/images/Ellipse 3.png" />
+          </div>
+          <div class="col-lg-10 pad0mg">
+            <h4 class="card-title recentUpdateText">
+              Karim Mostafa Post in Learning Powerful mental course ...</h4>
+            <h6 class="card-title">
+              3 min ago.</h6>
+          </div>
+        </div>
+  
+        <div class="card-body updateHolder">
+          <div class="col-lg-2 pad0mg">
+            <img src="../../../assets/images/Ellipse 3.png" />
+          </div>
+          <div class="col-lg-10 pad0mg">
+            <h4 class="card-title recentUpdateText">
+              Karim Mostafa Post in Learning Powerful mental course ...</h4>
+            <h6 class="card-title">
+              3 min ago.</h6>
+          </div>
+        </div>
+  
+        <div class="card-body updateHolder">
+          <div class="col-lg-2 pad0mg">
+            <img src="../../../assets/images/Ellipse 3.png" />
+          </div>
+          <div class="col-lg-10 pad0mg">
+            <h4 class="card-title recentUpdateText">
+              Karim Mostafa Post in Learning Powerful mental course ...</h4>
+            <h6 class="card-title">
+              3 min ago.</h6>
+          </div>
+        </div>
+      </div>
+      
+  
     </div>
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="AvailableSeats" 
-            name="AvailableSeats" 
-            placeholder="AvailableSeats">
-    </div>   
-    
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="courseLevel" 
-            name="courseLevel" 
-            placeholder="courseLevel">
-    </div>  
-
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="AvailableSeats" 
-            name="AvailableSeats" 
-            placeholder="AvailableSeats">
-    </div>  
-
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="CourseDuration" 
-            name="CourseDuration" 
-            placeholder="CourseDuration">
-    </div>  
-
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="CourseDuration" 
-            name="CourseDuration" 
-            placeholder="CourseDuration">
-    </div> 
-
-    <div class="form-group">
-        <input 
-            type="text" 
-            class="form-control w-100" 
-            formControlName="CourseCategory" 
-            name="CourseCategory" 
-            placeholder="CourseCategory">
-    </div> 
-    
-    
-  </form>
-  <button (click)="add()" >Add</button>
-  <!-- <button (click)="edit()" *ngIf="isEdit">Edit</button> -->
-  <button (click)="resetForm()" >Reset</button>
+  </div>

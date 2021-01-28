@@ -1,46 +1,105 @@
 
-    <h3> Student Details  </h3>
-    <!-- Card deck -->
-    <div class="card-deck row">     
 
-        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let student of studDetails">
-            <!-- Card -->
-            <div class="card">
-            
-                <div class="card-body">
+    
 
-                    <!--Title-->
-                    <h4 class="card-title">1 Card title</h4>
-                    <!--Text-->
+<div class="row">
+    <div class="col-lg-3">  
+  
+    </div>
+  
+    <div class="col-lg-6">
+      <div class="allCoursesHeader">
+        <h3 class="allCoursesTxt"> Add Courses</h3>
+      </div>
+  
+      <div class="col-xs-12 col-sm-6 col-md-7" *ngFor="let student of studDetails">
+        <!-- Card -->
+        <div class="card">
+        
+            <div class="card-body">
 
-                    <p class="card-text">
-                        id: {{student.Id}}
-                    </p>
-                    <p class="card-text">
-                        Name: {{student.Name}}
+                <!--Title-->
+                <h4 class="card-title">Main Info</h4>
+                <!--Text-->
 
-                    </p>
-                    <p class="card-text">
-                        Phone: {{student.Phone}}
-                    </p>
-                    <p class="card-text">
-                        RegisterDate: {{student.RegisterDate}}
-                    </p>
-                    <p class="card-text">
-                        Address: {{student.Address}}
-                    </p>
+                <p class="card-text">
+                    id: {{student.Id}}
+                </p>
+                <p class="card-text">
+                    Name: {{student.Name}}
 
-                </div>
+                </p>
+                <p class="card-text">
+                    Phone: {{student.Phone}}
+                </p>
+                <p class="card-text">
+                    RegisterDate: {{student.RegisterDate}}
+                </p>
+                <p class="card-text">
+                    Address: {{student.Address}}
+                </p>
 
-                <div *ngFor="let course of courseDetails" style="background-color: aqua;">
-                    <div *ngFor="let item of course.Courses" style="background-color: aqua;">
+              
+                <h4 class="card-title">Requested Courses</h4>
+                <div *ngFor="let course of courseDetails">
+                    <div *ngFor="let item of course.Courses" >
                         {{item.CourseId}}                  
-                    </div>              
+                    </div>  
+
+                    <h4 class="card-title">Payment Type</h4>
+                    <div> {{course.PaymentType}}</div>            
                 </div>
             </div>
-            <!-- Card -->
+
+        
         </div>
-
-
-
+        <!-- Card -->
     </div>
+    </div>
+  
+    <div class="col-lg-3">
+      <app-carousel></app-carousel>
+      <div class="card recentsUpdatesSection">
+        <div class="view overlay">
+          <div class="recentUpdates">Recent Updates</div>
+        </div>
+        <div class="card-body updateHolder">
+          <div class="col-lg-2 pad0mg">
+            <img src="../../../assets/images/Ellipse 3.png" />
+          </div>
+          <div class="col-lg-10 pad0mg">
+            <h4 class="card-title recentUpdateText">
+              Karim Mostafa Post in Learning Powerful mental course ...</h4>
+            <h6 class="card-title">
+              3 min ago.</h6>
+          </div>
+        </div>
+  
+        <div class="card-body updateHolder">
+          <div class="col-lg-2 pad0mg">
+            <img src="../../../assets/images/Ellipse 3.png" />
+          </div>
+          <div class="col-lg-10 pad0mg">
+            <h4 class="card-title recentUpdateText">
+              Karim Mostafa Post in Learning Powerful mental course ...</h4>
+            <h6 class="card-title">
+              3 min ago.</h6>
+          </div>
+        </div>
+  
+        <div class="card-body updateHolder">
+          <div class="col-lg-2 pad0mg">
+            <img src="../../../assets/images/Ellipse 3.png" />
+          </div>
+          <div class="col-lg-10 pad0mg">
+            <h4 class="card-title recentUpdateText">
+              Karim Mostafa Post in Learning Powerful mental course ...</h4>
+            <h6 class="card-title">
+              3 min ago.</h6>
+          </div>
+        </div>
+      </div>
+      
+  
+    </div>
+  </div>

@@ -71,29 +71,33 @@
           The difficulty level of the course
         </div>
         <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="Beginner" (change)="filterCoursesLVL($event.target.checked,Beginner)" />
+          <input type="checkbox" class="switchIco" id="Beginner"
+            (change)="filterCoursesLVL($event.target.checked,Beginner)" />
           <label class="lbl_Checkbox" for="Beginner">
             Beginner
           </label>
         </div>
 
         <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="Intermediate" (change)="filterCoursesLVL($event.target.checked,Intermediate)" />
+          <input type="checkbox" class="switchIco" id="Intermediate"
+            (change)="filterCoursesLVL($event.target.checked,Intermediate)" />
           <label class="lbl_Checkbox" for="Intermediate">
             Intermediate
           </label>
         </div>
         <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="Expert" (change)="filterCoursesLVL($event.target.checked,Expert)" />
+          <input type="checkbox" class="switchIco" id="Expert"
+            (change)="filterCoursesLVL($event.target.checked,Expert)" />
           <label class="lbl_Checkbox" for="Expert">
             Expert
           </label>
         </div>
 
         <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="All Levels " (change)="filterCoursesLVL($event.target.checked,AllLevels )" />
+          <input type="checkbox" class="switchIco" id="All Levels "
+            (change)="filterCoursesLVL($event.target.checked,AllLevels )" />
           <label class="lbl_Checkbox" for="All Levels ">
-            All Levels 
+            All Levels
           </label>
         </div>
 
@@ -115,8 +119,8 @@
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
       </div>
       <div class="col-lg-3"><button class="btn btn-primary">
-        <a [routerLink]="['course-add']">  Add New Course</a>
-      </button></div>
+          <a [routerLink]="['course-add']"> Add New Course</a>
+        </button></div>
     </div>
 
     <!-- Card deck -->
@@ -146,10 +150,10 @@
               Course Duration: {{course.CourseDuration}}</h4>
             <h4 class="card-title">
               Course Category: {{course.CourseCategory}}</h4>
-              <h4 class="card-title">
-                Course Level: {{course.courseLevel}}</h4>
+            <h4 class="card-title">
+              Course Level: {{course.courseLevel}}</h4>
 
-              
+
           </div>
         </div>
       </div>

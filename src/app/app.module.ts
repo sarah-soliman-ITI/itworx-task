@@ -14,6 +14,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { CourseAddComponent } from './components/course-add/course-add.component';
 import { CourseService } from './components/courses/course.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/shared/header/header.component';
 
 
 
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     StudentsComponent,
     MyProfileComponent,
     CarouselComponent,
-    CourseAddComponent
+    CourseAddComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
