@@ -15,6 +15,7 @@ export class MyProfileComponent implements OnInit {
   studDetails;
   courseDetails;
   courseNames;
+  arr =[];
 
   constructor(private httpClient : HttpClient,private router: Router) { }
 
@@ -58,7 +59,13 @@ export class MyProfileComponent implements OnInit {
   }
 
 
-  totalPriceForCourses(){
+  totalPriceForCourses(courseId){
+    let name = this.courseNames.filter(x => x.CourseId == courseId);
+     return name[0].CoursePrice;  
+
+ 
+ 
+
     
   }
 

@@ -49,6 +49,16 @@
                     <h4 class="card-title">Payment Type</h4>
                     <div> {{course.PaymentType}}</div>            
                 </div>
+
+                 
+                <h4 class="card-title">Courses Total Price</h4>
+                <div *ngFor="let course of courseDetails">
+                    <div *ngFor="let item of course.Courses" >
+                      {{getCourseName(item.CourseId)}} == : {{totalPriceForCourses(item.CourseId)}}                   
+                    </div>  
+                </div>
+
+
             </div>
 
         

@@ -110,3 +110,6 @@ p,img,a,div{
     cursor: pointer !important;
 }
 
+.card-deck .card{
+  margin: 0px !important;
+}
