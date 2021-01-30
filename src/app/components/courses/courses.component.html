@@ -88,7 +88,15 @@
 
       <h3 class="allCoursesTxt"> All Courses</h3>
       <div class="search col-lg-4">
-        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off">
+     
+
+        <div class="form-group has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" placeholder="Search  By  ccourse  name"
+          type="text" name="search" [(ngModel)]="searchText" autocomplete="off" style="padding-right: 1.75rem;">
+        </div>
+
+
       </div>
       <div class="col-lg-3"><button class="btn btn-primary">
           <a [routerLink]="['course-add']"> Add New Course</a>

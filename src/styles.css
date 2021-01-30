@@ -37,7 +37,7 @@ ol.carousel-indicators {
   
   .card-body{
     margin: 0% 0% 0% 3%;
-    padding: 6% 0%;
+    padding: 6% 0% !important;
   }
   h4.card-title.warningMinSeats {
     color: #ff5b5b;
