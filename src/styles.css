@@ -122,3 +122,30 @@ p,img,a,div{
   padding-bottom: 20px;
 }
 
+@media screen and (max-width: 600px) {
+  .top-header {
+    height: 130px;
+    display: grid;
+    align-items: center;
+}
+
+.labelS {
+  width: 100% !important;
+  background-color: #4d4a49;
+  border-radius: 0px 22px 23px 0px;
+  border-left: 0px !important;
+  text-align: right;
+  height: 45px;
+  padding: 0px 30px 0px 0px;
+  font-size: 30px;
+}
+
+.smallLbl {
+  font-size: 12px !important;
+  padding: 8px 30px 0px 9px !important;
+}
+h3.allCoursesTxt {
+  font-size: 24px;
+  margin: 9px;
+}
+}
