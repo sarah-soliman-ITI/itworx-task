@@ -17,9 +17,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/shared/header/header.component';
 
 import { FilterComponent } from './components/courses/filter.component';
-import { CardsComponent } from './components/courses/cards.component';
+import { FilterDurComponent } from './components/courses/filterDur.component';
+import { FilterLvlComponent } from './components/courses/filterLvl.component';
 
+import { CardsComponent } from './components/courses/cards.component';
 import { FilterService } from './components/courses/filter.service';
+
+import { FilterDurService } from './components/courses/filterDur.service';
+import { FilterLvlService } from './components/courses/filterLvl.service';
 
 
 const appRoutes: Routes = [
@@ -54,7 +59,7 @@ const appRoutes: Routes = [
     MyProfileComponent,
     CarouselComponent,
     CourseAddComponent,
-    HeaderComponent,FilterComponent, CardsComponent
+    HeaderComponent,FilterComponent,FilterDurComponent,FilterLvlComponent,CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,7 @@ const appRoutes: Routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true,
-  }, FilterService],
+  }, FilterService, FilterDurService, FilterLvlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

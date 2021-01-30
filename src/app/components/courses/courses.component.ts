@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import { FilterService } from './filter.service';
+import { FilterDurService } from './filterDur.service';
+import { FilterLvlService } from './filterLvl.service';
 
 
 
@@ -54,6 +56,50 @@ export class CoursesComponent implements OnInit {
     }
   }
 
+  onFilterDur(checkedValues) {
+    this.coursesList=[];    
+    if (checkedValues.length == 0) {
+      this.getCourses();
+    }
+    
+      let filtered = this.originalCoursesList  
+        .map(p => p.CourseCategory)
+        .find(type => {
+          return checkedValues.find(checkedType => checkedType === type);
+        });
+      checkedValues.filter(element => {
+
+        let filteredItemsRes = this.originalCoursesList.filter(c => c.CourseCategory == (element));
+        filteredItemsRes.forEach(element => {
+          this.coursesList.push(element);
+        });            
+      });
+      this.copiedCoursesList= this.coursesList;
+   
+  }
+
+  onFilterLvl(checkedValues) {
+    this.coursesList=[];    
+    if (checkedValues.length == 0) {
+      this.getCourses();
+    }
+    
+      let filtered = this.originalCoursesList  
+        .map(p => p.courseLevel)
+        .find(type => {
+          return checkedValues.find(checkedType => checkedType === type);
+        });
+      checkedValues.filter(element => {
+        debugger
+        let filteredItemsRes = this.originalCoursesList.filter(c => c.courseLevel == (element));
+        filteredItemsRes.forEach(element => {
+          this.coursesList.push(element);
+        });            
+      });
+      debugger
+      this.copiedCoursesList= this.coursesList;
+   
+  }
 
 
   ngOnInit(): void {
@@ -87,6 +133,7 @@ export class CoursesComponent implements OnInit {
       var coursesList = this.originalCoursesList.filter(x => x.CourseDuration < 2);
       console.log(coursesList);
       this.originalCoursesList = coursesList;
+      this.copiedCoursesList = coursesList;
     } else {
       this.getCourses();
     }
@@ -97,6 +144,7 @@ export class CoursesComponent implements OnInit {
       var coursesList = this.originalCoursesList.filter(x => x.CourseDuration > 2 && x.CourseDuration < 10);
       console.log(coursesList);
       this.originalCoursesList = coursesList;
+      this.copiedCoursesList = coursesList;
     } else {
       this.getCourses();
     }
@@ -107,37 +155,11 @@ export class CoursesComponent implements OnInit {
       var coursesList = this.originalCoursesList.filter(x => x.CourseDuration > 10);
       console.log(coursesList);
       this.originalCoursesList = coursesList;
+      this.copiedCoursesList = coursesList;
     } else {
       this.getCourses();
     }
 
-  }
-
-
-  filterCourses(event, option) {
-    if (event == true && option != this.Other) {
-      var coursesList = this.originalCoursesList.filter(x => x.CourseCategory == option);
-      console.log(coursesList);
-      this.originalCoursesList = coursesList;
-    }
-    else if (event == true && option == this.Other) {
-      var coursesList = this.originalCoursesList.filter(x => x.CourseCategory != this.dev && x.CourseCategory != this.soft
-        && x.CourseCategory != this.fin);
-      this.originalCoursesList = coursesList;
-    } else {
-      this.getCourses();
-    }
-  }
-
-
-  filterCoursesLVL(event, option) {
-    if (event == true && option != this.AllLevels) {
-      var coursesList = this.originalCoursesList.filter(x => x.courseLevel == option);
-      console.log(coursesList);
-      this.originalCoursesList = coursesList;
-    } else {
-      this.getCourses();
-    }
   }
 
 }

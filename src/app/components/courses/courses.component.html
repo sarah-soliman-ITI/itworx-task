@@ -8,6 +8,9 @@
       <div class="view overlay">
         <div class="recentUpdates">Filter BY:</div>
       </div>
+ 
+      <!-- <filterDur style="float:left;" (filter)="onFilterDur($event)"></filterDur> -->
+      <filter style="float:left;" (filter)="onFilter($event)"></filter>
       <div class="card-bodyC">
         <div class="col-lg-12 courseDuration">
           Course Duration
@@ -34,46 +37,9 @@
           </label>
         </div>
       </div>
+   
+      <filterLvl style="float:left;" (filter)="onFilterLvl($event)"></filterLvl>
 
-      <filter style="float:left;" (filter)="onFilter($event)"></filter>
-
-
-      <div class="card-bodyC ">
-        <div class="col-lg-12 courseDuration">
-          The difficulty level of the course
-        </div>
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="Beginner"
-            (change)="filterCoursesLVL($event.target.checked,Beginner)" />
-          <label class="lbl_Checkbox" for="Beginner">
-            Beginner
-          </label>
-        </div>
-
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="Intermediate"
-            (change)="filterCoursesLVL($event.target.checked,Intermediate)" />
-          <label class="lbl_Checkbox" for="Intermediate">
-            Intermediate
-          </label>
-        </div>
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="Expert"
-            (change)="filterCoursesLVL($event.target.checked,Expert)" />
-          <label class="lbl_Checkbox" for="Expert">
-            Expert
-          </label>
-        </div>
-
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="All Levels "
-            (change)="filterCoursesLVL($event.target.checked,AllLevels )" />
-          <label class="lbl_Checkbox" for="All Levels ">
-            All Levels
-          </label>
-        </div>
-
-      </div>
 
 
 
