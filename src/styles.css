@@ -126,6 +126,7 @@ p,img,a,div{
   padding-bottom: 20px;
 }
 
+
 @media screen and (max-width: 600px) {
   .top-header {
     height: 130px;

@@ -16,6 +16,11 @@ export class MyProfileComponent implements OnInit {
   courseDetails;
   courseNames;
   arr =[];
+  totalCost=0;
+ 
+  priceForCourse(courseId){
+    return this.courseNames.find(x => x.CourseId == courseId).CoursePrice;
+  }
 
   constructor(private httpClient : HttpClient,private router: Router) { }
 
@@ -38,8 +43,13 @@ export class MyProfileComponent implements OnInit {
       this.coursesListBind = coursesList;
      // //   debugger
       for (let i = 0; i < this.coursesListBind.length; i++) {
-   
-        this.courseDetails = this.courses.filter(x => x.StudentId == this.studId);
+   debugger;
+        this.courseDetails = this.courses.find(x => x.StudentId == this.studId);
+
+        this.courseDetails.Courses.forEach(element => {
+          this.totalCost += this.priceForCourse(element.CourseId)
+        });
+      //  this.totalCost += this.courseDetails.Courses.map(x =>this.priceForCourse(x.CourseId));
 
       }
      

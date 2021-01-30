@@ -15,6 +15,14 @@ export class FilterComponent implements OnInit {
     {name:'Finance & Accounting', value:'Finance & Accounting', checked:false}
   ]
 
+
+  
+  durationOptions = [
+    {name:'LessThanTwo', value:'LessThanTwo', checked:false},
+    {name:'IT & Software', value:'IT & Software', checked:false},
+    {name:'Other', value:'Other', checked:false},
+    {name:'Finance & Accounting', value:'Finance & Accounting', checked:false}
+  ]
   public ngOnInit() {
    // this.onFilter();
   }

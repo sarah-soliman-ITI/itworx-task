@@ -13,7 +13,8 @@ import { FilterService } from './filter.service';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  courses: any;
+  originalCoursesList: any;
+  copiedCoursesList = [];
   coursesListBind = [];
   searchText;
   dev = "Development";
@@ -24,6 +25,7 @@ export class CoursesComponent implements OnInit {
   Intermediate = "Intermediate";
   Expert = "Expert";
   AllLevels = "AllLevels";
+  
 
 
   constructor(private httpClient: HttpClient, private filterService: FilterService) { }
@@ -33,45 +35,38 @@ export class CoursesComponent implements OnInit {
   filteredCards;
 
 
-  coursesList;
+  coursesList =[];
   onFilter(checkedValues) {
+    this.coursesList=[];
+    
     if (checkedValues.length == 0) {
       this.getCourses();
     }
     if (checkedValues == "Other") {
-      var coursesList = this.courses.filter(x => x.CourseCategory != this.dev && x.CourseCategory != this.soft
+      var coursesList = this.originalCoursesList.filter(x => x.CourseCategory != this.dev && x.CourseCategory != this.soft
         && x.CourseCategory != this.fin);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     } else {
-
-      //   debugger
-      let filtered = this.courses
-        // .filter(card => {
-        //   return card
+      let filtered = this.originalCoursesList  
         .map(p => p.CourseCategory)
         .find(type => {
           return checkedValues.find(checkedType => checkedType === type);
         });
-
+        debugger;
       checkedValues.filter(element => {
-        this.coursesList = this.courses.filter(c => c.CourseCategory == (element))
+        let filteredItemsRes = this.originalCoursesList.filter(c => c.CourseCategory == (element));
+        filteredItemsRes.forEach(element => {
+          this.coursesList.push(element);
+        });
+      
         console.log(this.coursesList);
-
 
       });
       console.log(filtered);
-      this.courses = (this.coursesList);
+      this.copiedCoursesList= this.coursesList;
     }
 
-    // this.courses.filter(c=>c.CourseCategory == (checkedValues))
-    //   var coursesList = this.courses.filter(x => x.CourseCategory == checkedValues);
-    //   console.log(coursesList);
-    //   this.courses = (coursesList);  
-    //  for (let i = 0; i < checkedValues.length; i++) {
-    //   var coursesList = this.courses.filter(x => x.CourseCategory == checkedValues);
-    //   console.log(coursesList);
-    //   this.courses = (coursesList);  
-    //  }
+ 
 
 
   }
@@ -83,12 +78,12 @@ export class CoursesComponent implements OnInit {
     if(additionalCourses !=null){
       this.httpClient.get("assets/lists/courses.json").subscribe(data => {
         console.log(data);
-        this.courses = data;
+        this.originalCoursesList = data;
         debugger
         let parsed = JSON.parse(additionalCourses);
-        this.courses.push(parsed);
-        this.courses = this.courses;
-        console.log(this.courses)
+        this.originalCoursesList.push(parsed);
+        this.originalCoursesList = this.originalCoursesList;
+        console.log(this.originalCoursesList)
       });
     }
     this.getCourses();
@@ -96,17 +91,19 @@ export class CoursesComponent implements OnInit {
   }
 
   getCourses() {
-    this.httpClient.get("assets/lists/courses.json").subscribe(data => {
+    this.httpClient.get("assets/lists/courses.json").subscribe((data: any) => {
       console.log(data);
-      this.courses = data;
+      this.originalCoursesList = [...data];
+      this.copiedCoursesList = [...data];
+
     })
   }
   getCoursesDurLessThanTwo(event) {
     console.log(event);
     if (event == true) {
-      var coursesList = this.courses.filter(x => x.CourseDuration < 2);
+      var coursesList = this.originalCoursesList.filter(x => x.CourseDuration < 2);
       console.log(coursesList);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     } else {
       this.getCourses();
     }
@@ -114,9 +111,9 @@ export class CoursesComponent implements OnInit {
 
   getCoursesFromTwo(event) {
     if (event == true) {
-      var coursesList = this.courses.filter(x => x.CourseDuration > 2 && x.CourseDuration < 10);
+      var coursesList = this.originalCoursesList.filter(x => x.CourseDuration > 2 && x.CourseDuration < 10);
       console.log(coursesList);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     } else {
       this.getCourses();
     }
@@ -124,9 +121,9 @@ export class CoursesComponent implements OnInit {
 
   getCoursesDurMoreThanTwo(event) {
     if (event == true) {
-      var coursesList = this.courses.filter(x => x.CourseDuration > 10);
+      var coursesList = this.originalCoursesList.filter(x => x.CourseDuration > 10);
       console.log(coursesList);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     } else {
       this.getCourses();
     }
@@ -136,14 +133,14 @@ export class CoursesComponent implements OnInit {
 
   filterCourses(event, option) {
     if (event == true && option != this.Other) {
-      var coursesList = this.courses.filter(x => x.CourseCategory == option);
+      var coursesList = this.originalCoursesList.filter(x => x.CourseCategory == option);
       console.log(coursesList);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     }
     else if (event == true && option == this.Other) {
-      var coursesList = this.courses.filter(x => x.CourseCategory != this.dev && x.CourseCategory != this.soft
+      var coursesList = this.originalCoursesList.filter(x => x.CourseCategory != this.dev && x.CourseCategory != this.soft
         && x.CourseCategory != this.fin);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     } else {
       this.getCourses();
     }
@@ -152,9 +149,9 @@ export class CoursesComponent implements OnInit {
 
   filterCoursesLVL(event, option) {
     if (event == true && option != this.AllLevels) {
-      var coursesList = this.courses.filter(x => x.courseLevel == option);
+      var coursesList = this.originalCoursesList.filter(x => x.courseLevel == option);
       console.log(coursesList);
-      this.courses = coursesList;
+      this.originalCoursesList = coursesList;
     } else {
       this.getCourses();
     }
