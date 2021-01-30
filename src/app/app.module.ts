@@ -16,7 +16,10 @@ import { CourseService } from './components/courses/course.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/shared/header/header.component';
 
+import { FilterComponent } from './components/courses/filter.component';
+import { CardsComponent } from './components/courses/cards.component';
 
+import { FilterService } from './components/courses/filter.service';
 
 
 const appRoutes: Routes = [
@@ -51,7 +54,7 @@ const appRoutes: Routes = [
     MyProfileComponent,
     CarouselComponent,
     CourseAddComponent,
-    HeaderComponent
+    HeaderComponent,FilterComponent, CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,7 @@ const appRoutes: Routes = [
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi: true,
-  }],
+  }, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

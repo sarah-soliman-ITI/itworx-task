@@ -1,11 +1,14 @@
 <div class="row">
   <div class="col-lg-3">
 
+
+
+
     <div class="card recentsUpdatesSection">
       <div class="view overlay">
         <div class="recentUpdates">Filter BY:</div>
       </div>
-      <div class="card-body ">
+      <div class="card-bodyC">
         <div class="col-lg-12 courseDuration">
           Course Duration
         </div>
@@ -32,41 +35,10 @@
         </div>
       </div>
 
-      <div class="card-body ">
-        <div class="col-lg-12 courseDuration">
-          All Categories
-        </div>
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="dev" (change)="filterCourses($event.target.checked,dev)" />
-          <label class="lbl_Checkbox" for="dev">
-            Development
-          </label>
-        </div>
-
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="fin" (change)="filterCourses($event.target.checked,fin)" />
-          <label class="lbl_Checkbox" for="fin">
-            Finance & Accounting
-          </label>
-        </div>
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="it" (change)="filterCourses($event.target.checked,soft)" />
-          <label class="lbl_Checkbox" for="it">
-            IT & Software
-          </label>
-        </div>
-
-        <div class="col-lg-12 pad0mg">
-          <input type="checkbox" class="switchIco" id="other" (change)="filterCourses($event.target.checked,Other)" />
-          <label class="lbl_Checkbox" for="other">
-            Other
-          </label>
-        </div>
-
-      </div>
+      <filter style="float:left;" (filter)="onFilter($event)"></filter>
 
 
-      <div class="card-body ">
+      <div class="card-bodyC ">
         <div class="col-lg-12 courseDuration">
           The difficulty level of the course
         </div>

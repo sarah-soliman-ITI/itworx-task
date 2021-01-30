@@ -32,6 +32,7 @@ ol.carousel-indicators {
     margin: 5% 0%;
     background: #181818 !important;
     color: #c0c0c0 !important;
+    border-radius: 1.25rem !important;
   }
   
   .card-body{
@@ -113,3 +114,11 @@ p,img,a,div{
 .card-deck .card{
   margin: 0px !important;
 }
+
+.card-bodyC{
+  line-height: 2;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4d4a49;
+  padding-bottom: 20px;
+}
+

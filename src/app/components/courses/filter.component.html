@@ -1,0 +1,20 @@
+
+<div class="card-bodyC">
+  <div class="col-lg-12 courseDuration">
+    All Categories
+  </div>
+  <div class="col-lg-12 pad0mg" *ngFor="let option of options">
+    <label class="lbl_Checkbox">
+    <input type="checkbox" class="switchIco" type="checkbox"
+    name="options"
+    value="{{option.value}}"
+    [(ngModel)]="option.checked"
+    (change)="onFilter()" />
+
+    {{option.name}}
+    </label>
+  </div>
+
+
+
+</div>

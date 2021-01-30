@@ -4,3 +4,31 @@
     align-items: center;
     right: 15px;
 }
+
+.smartOns{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.labelS{
+    width: 600px;
+    background-color: #4d4a49;
+    border-radius: 0px 22px 23px 0px;
+    border-left: 0px !important;
+    text-align: right;
+    height: 45px;
+    padding: 0px 30px 0px 0px;
+    font-size: 30px;
+}
+
+.holderLbl{
+    position: absolute;
+    left: 0px;
+}
+
+.smallLbl{
+    font-size: 18px;
+    width: 711px;
+    padding: 8px 30px 0px 0px;
+    background-color: #62604c75;
+}
