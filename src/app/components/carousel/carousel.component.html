@@ -1,34 +1,45 @@
 <div class="row">
   <div class="col-md-12 py-3">
+
+    
+    <div class="card recentsUpdatesSection">
+      <div class="view overlay">
+        <div class="recentUpdates">Todo List </div>
+      </div>
   
-    <ngb-carousel *ngIf="course_list">
-      <ng-template ngbSlide *ngFor="let course of current_courses">
-        <img src="../../../assets/images/slider.png" alt="Random slide">
-        <div class="carousel-caption">
-          <h3>
-            <span class="sliderItems">
-              1
-            </span>
-            <span class="sliderItems">
-              2
-            </span>
-            <span class="sliderItems">
-              3
-            </span>
-            <span class="sliderItems">
-              4
-            </span> <span class="sliderItems">
-              5
-            </span> <span class="sliderItems">
-              6
-            </span>
-            <span class="sliderItems">
-              7
-            </span>
-          </h3>
-       
-        </div>
-      </ng-template>
-    </ngb-carousel>
+  
+      <ngb-carousel *ngIf="course_list">
+        <ng-template ngbSlide *ngFor="let course of current_courses">
+          <img src="../../../assets/images/slider.png" alt="Random slide">
+          <div class="carousel-caption">
+            <h3>
+              <span class="sliderItems">
+                1
+              </span>
+              <span class="sliderItems">
+                2
+              </span>
+              <span class="sliderItems">
+                3
+              </span>
+              <span class="sliderItems">
+                4
+              </span> <span class="sliderItems">
+                5
+              </span> <span class="sliderItems">
+                6
+              </span>
+              <span class="sliderItems">
+                7
+              </span>
+            </h3>
+         
+          </div>
+        </ng-template>
+      </ngb-carousel>
+   
+    </div>
+
+
   </div>
 </div>
