@@ -25,20 +25,12 @@ export class CoursesComponent implements OnInit {
   Intermediate = "Intermediate";
   Expert = "Expert";
   AllLevels = "AllLevels";
-  
-
-
   constructor(private httpClient: HttpClient, private filterService: FilterService) { }
 
-
-
   filteredCards;
-
-
   coursesList =[];
   onFilter(checkedValues) {
-    this.coursesList=[];
-    
+    this.coursesList=[];    
     if (checkedValues.length == 0) {
       this.getCourses();
     }
@@ -52,23 +44,14 @@ export class CoursesComponent implements OnInit {
         .find(type => {
           return checkedValues.find(checkedType => checkedType === type);
         });
-        debugger;
       checkedValues.filter(element => {
         let filteredItemsRes = this.originalCoursesList.filter(c => c.CourseCategory == (element));
         filteredItemsRes.forEach(element => {
           this.coursesList.push(element);
-        });
-      
-        console.log(this.coursesList);
-
+        });            
       });
-      console.log(filtered);
       this.copiedCoursesList= this.coursesList;
     }
-
- 
-
-
   }
 
 

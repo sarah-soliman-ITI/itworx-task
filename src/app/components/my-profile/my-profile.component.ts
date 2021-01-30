@@ -46,12 +46,13 @@ export class MyProfileComponent implements OnInit {
    debugger;
         this.courseDetails = this.courses.find(x => x.StudentId == this.studId);
 
-        this.courseDetails.Courses.forEach(element => {
-          this.totalCost += this.priceForCourse(element.CourseId)
-        });
+    
       //  this.totalCost += this.courseDetails.Courses.map(x =>this.priceForCourse(x.CourseId));
 
       }
+      this.courseDetails.Courses.forEach(element => {
+        this.totalCost += this.priceForCourse(element.CourseId)
+      });
      
   })
   }
