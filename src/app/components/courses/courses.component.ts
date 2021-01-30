@@ -44,7 +44,7 @@ export class CoursesComponent implements OnInit {
       this.courses = coursesList;
     } else {
 
-        debugger
+      //   debugger
       let filtered = this.courses
         // .filter(card => {
         //   return card
@@ -53,21 +53,14 @@ export class CoursesComponent implements OnInit {
           return checkedValues.find(checkedType => checkedType === type);
         });
 
-        if(checkedValues[0]=="Development" && checkedValues[1]=="IT & Software"){
-          var coursesList = this.courses.filter(x => x.CourseCategory == this.dev && x.CourseCategory == this.soft
-         );
-         debugger
-          this.courses = coursesList;
-          
-        }
-      // checkedValues.filter(element => {
-      //   this.coursesList = this.courses.filter(c => c.CourseCategory == (element))
-      //   console.log(this.coursesList);
+      checkedValues.filter(element => {
+        this.coursesList = this.courses.filter(c => c.CourseCategory == (element))
+        console.log(this.coursesList);
 
 
-      // });
-      // console.log(filtered);
-      // this.courses = (this.coursesList);
+      });
+      console.log(filtered);
+      this.courses = (this.coursesList);
     }
 
     // this.courses.filter(c=>c.CourseCategory == (checkedValues))
@@ -86,7 +79,20 @@ export class CoursesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    let additionalCourses = localStorage.getItem("addition");
+    if(additionalCourses !=null){
+      this.httpClient.get("assets/lists/courses.json").subscribe(data => {
+        console.log(data);
+        this.courses = data;
+        debugger
+        let parsed = JSON.parse(additionalCourses);
+        this.courses.push(parsed);
+        this.courses = this.courses;
+        console.log(this.courses)
+      });
+    }
     this.getCourses();
+
   }
 
   getCourses() {
